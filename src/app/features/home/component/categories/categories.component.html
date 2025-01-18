@@ -1,0 +1,12 @@
+@if(categories && categories.length){
+<section class="categories-container">
+  <header>Top Courses</header>
+  <div class="categories">
+    <ng-container *ngFor="let category of categories">
+      <button  class="category-btn" [class]="category.id == selectCategoryId ? 'active' : ''  " (click)="selectCategory(category.id)">
+        {{ category.name }}
+      </button>
+    </ng-container>
+  </div>
+</section>
+}

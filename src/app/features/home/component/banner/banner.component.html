@@ -1,0 +1,90 @@
+<section>
+  @if(isLoading){
+  <div class="loader-container">
+    <div class="custom-loader"></div>
+  </div>
+  } @if(!isLoading){
+  <div
+    class="hero-section"
+    [class]="isMobile ? 'hero-section-mobile' : 'hero-section-web'"
+  >
+    @if(!isMobile){
+    <img
+      class="hero-background"
+      src="../../../../../assets/images/circles.svg"
+      alt="hero"
+    />
+    }
+
+    <div
+      class="hero-content"
+      [class]="isMobile ? 'hero-content-sm' : 'hero-content-md'"
+    >
+      <h1>
+        Better <span class="highlight">Insights</span> For <br />
+        Business <span class="highlight">Growth</span>
+      </h1>
+      <!-- <h1 [innerHtml]="banners[currentSlide].title"></h1> -->
+
+      <p>{{ banners[currentSlide].brief | slice : 0 : 100 }} ...</p>
+      <button class="cta-button">Get Started</button>
+    </div>
+
+    <div class="hero-container">
+      <img
+        class="hero-background"
+        src="../../../../../assets/images/circles.svg"
+        alt="hero"
+      />
+
+      <div class="hero-image">
+        <img
+          class="hero-main-image"
+          [src]="banners[currentSlide].image"
+          alt="Person"
+        />
+      </div>
+
+      <div class="content-md">
+        @if(!isMobile){
+        <div class="stats-card courses">
+          <img
+            src="../../../../../assets/images/Ring.svg"
+            alt="Online-courses"
+          />
+          <p><span>5K+</span><br />Online Courses</p>
+        </div>
+        <div class="stats-card tutors">
+          <div>
+            <img src="../../../../../assets/icons/icon (1).svg" alt="tutors" />
+          </div>
+          <p>Tutors<br /><span>250+</span></p>
+        </div>
+        <div class="stats-card video">
+          <img src="../../../../../assets/icons/icon.svg" alt="Courses" />
+          <p><span>2K+</span><br />Video Courses</p>
+        </div>
+        }
+      </div>
+      <div class="circles-container">
+        <img
+          class="circles"
+          src="../../../../../assets/images/circles.svg"
+          alt="circles-img"
+        />
+      </div>
+      <div class="circle-dot"></div>
+      <div class="circle-dot-last"></div>
+    </div>
+    @if(!isMobile){
+    <div class="cloud-img">
+      <img
+        class="cloud"
+        src="../../../../../assets/images/cloud.svg"
+        alt="cloud-img"
+      />
+    </div>
+    }
+  </div>
+  }
+</section>

@@ -1,0 +1,153 @@
+.course-card {
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+  font-family: 'Inter';
+  width: 100%;
+  background: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(59, 130, 246, 0.12);
+  transition: transform 0.3s;
+  padding-bottom: 20px;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    padding: 10px;
+    overflow: hidden;
+
+    img {
+
+      width: 100%;
+      height: 100%;
+      object-fit: 100% 100%;
+      border: 1px solid transparent;
+      border-radius: 8px;
+    }
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); // Adjust opacity as needed
+      border-radius: 8px;
+      z-index: 1;
+    }
+  }
+
+
+    .discount-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(242, 50, 189, 1);
+      z-index: 999;
+      color: white;
+      padding: 5px 10px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .icon-wrapper{
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 999;
+    }
+  }
+
+  .course-info {
+    padding: 15px;
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: rgba(0, 184, 255, 1);
+    }
+
+    .category {
+      color: #fff;
+      gap: 0px;
+      border-radius: 10px;
+      opacity: 0px;
+      background-color: rgba(0, 184, 255, 1);
+      padding: 10px;
+    }
+
+    .title {
+      font-family: 'Inter';
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28.8px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: rgba(15, 23, 42, 1);
+
+    }
+
+    .author {
+    //styleName: small text;
+      font-family: 'Inter';
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      color: rgba(51, 65, 85, 1);
+
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+       margin: 10px 0;
+      .stars {
+        color: gold;
+        margin-right: 5px;
+      }
+
+      .rating-count {
+          font-family: Inter;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 14.52px;
+          text-align: left;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+          color: rgba(51, 65, 85, 1);
+
+      }
+    }
+    .total-hours{
+        font-family: 'Inter';
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: rgba(51, 65, 85, 1);
+    }
+  }
+}

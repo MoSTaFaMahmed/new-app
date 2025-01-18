@@ -1,0 +1,10 @@
+@if(!isMobile){
+<app-categories (categorySelected)="filterByCategory($event)"></app-categories>
+}
+<section class="courses-container">
+  <app-course-card
+    *ngFor="let course of filteredCourses"
+    [course]="course"
+   >
+  </app-course-card>
+</section>

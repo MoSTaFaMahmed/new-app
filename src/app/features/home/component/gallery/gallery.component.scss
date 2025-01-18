@@ -1,0 +1,202 @@
+$primary-color: #00aaff;
+$bg-color: #e6f7ff;
+
+.slider-wrapper {
+  display: flex;
+  padding: 40px;
+  border-radius: 8px;
+  // position: relative;
+  overflow: hidden;
+  gap: 300px;
+  background: $bg-color;
+  font-family: 'Poppins-light';
+
+  &-sm {
+    flex-direction: column;
+  }
+
+  &-md {
+    // Add any desktop-specific styles here if needed
+  }
+  .view-all {
+    background: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 402px;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 22px;
+    }
+
+    .highlight {
+      color: $primary-color;
+    }
+  }
+
+  // Desktop Slider
+  .slider-desktop {
+    position: relative;
+    height: 500px;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+
+    .slide-desktop {
+      position: absolute;
+      top: 0;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      transition: width 0.5s ease, height 0.5s ease, left 0.5s ease, opacity 0.5s ease;
+    }
+  }
+
+  .progress-bar-sm {
+    margin-top: 10px;
+    width: 90vw;
+    height: 4px;
+    background: #ddd;
+    position: relative;
+    border-radius: 2px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 10%;
+      height: 100%;
+      background: $primary-color;
+      animation: progressAnimation-sm 9s infinite;
+    }
+  }
+
+.slider-mobile-actions{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+  // Mobile Slider
+  .slider-mobile {
+    display: flex;
+    transition: transform 0.5s ease;
+    align-items: center;
+
+    .slider {
+      display: flex;
+      gap: 10px;
+
+      .image-large {
+        border-radius: 20px;
+        width: 80vw;
+      }
+
+      .image-small {
+        border-radius: 20px;
+        width: 40vw;
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+
+    .pagination-controls {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 ;
+      margin: 0 ;
+      background: $primary-color;
+      border-radius: 40px;
+      width: 70px;
+      height: 27;
+      .prev,
+      .next {
+        background: $primary-color;
+        border: none;
+        color: white;
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+    }
+
+    .progress-bar {
+      width: 500px;
+      height: 4px;
+      background: #ddd;
+      position: relative;
+      border-radius: 2px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        background: $primary-color;
+        animation: progressAnimation 9s infinite;
+      }
+    }
+
+    span {
+      font-size: 16px;
+      color: #333;
+    }
+  }
+}
+
+// Keyframe Animation for Progress Bar
+@keyframes progressAnimation {
+  0% {
+    width: 10%;
+  }
+  33% {
+    width: 33%;
+  }
+  66% {
+    width: 66%;
+  }
+  100% {
+    width: 10%;
+  }
+}
+
+@keyframes progressAnimation-sm {
+  0% {
+    width: 10%;
+  }
+  33% {
+    width: 33%;
+  }
+  66% {
+    width: 66%;
+  }
+  100% {
+    width: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-wrapper {
+    gap: 100px;
+  }
+}

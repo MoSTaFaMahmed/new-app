@@ -1,0 +1,76 @@
+<section>
+  <div class="container">
+    <section class="element full-stack-container">
+      <nav>
+        <div class="nav-container">
+          <p>Categories</p>
+          <img src="../../../assets/icons/chervon-right.svg" alt="" />
+          <p>Details</p>
+          <img src="../../../assets/icons/chervon-right.svg" alt="" />
+          <p>Full Stack Web Development</p>
+        </div>
+      </nav>
+      <div class="content">
+        <header>Shopping Cart</header>
+        <div class="divider"></div>
+        <p>3 Course(s) in cart</p>
+      </div>
+      <div class="course-card" *ngFor="let course of cartItems">
+        <div class="image-container">
+          <div class="image-wrapper">
+            <img [src]="course.image" [alt]="course.title" />
+          </div>
+          @if(course.discount > 0){
+          <div class="discount-badge">-{{ course.discount }}%</div>
+          }
+
+        </div>
+
+        <div class="course-info">
+
+
+          <p class="title">{{ course.title }}</p>
+
+          <p class="author">By {{ course.author }}</p>
+
+          <div class="rating">
+            <span class="stars">
+              <img src="../../../../assets/icons/ratings.svg" alt="" />
+            </span>
+            <span class="rating-count">{{ course.ratingCount }} | {{ course.hours }} Total Hours. {{ course.lectures }} Lectures. Beginner</span>
+          </div>
+
+          <div class="remove" (click)="removeFromCart(course)">
+            <p>Remove</p>
+          </div>
+
+        </div>
+        <div class="price">
+         <p>${{ course.price }}</p>
+        </div>
+      </div>
+    </section>
+    <div class="element course-details-container">
+          <header>Order Details</header>
+          <div class="order-details">
+
+           <div class="order-props">
+            <div class="order-prop">
+              <p>Price</p> <p>${{totalPrice}}</p>
+             </div>
+             <div class="order-prop">
+              <p>Discount</p> <p>-$20</p>
+             </div>
+             <div class="order-prop">
+              <p>Tax</p> <p>$20</p>
+             </div>
+               <div class="divider"></div>
+               <div class="order-prop">
+                <h1>Total</h1> <p>{{totalPrice}}</p>
+               </div>
+           </div>
+          </div>
+          <button class="add-to-cart" >Proceed to Checkout</button>
+    </div>
+  </div>
+</section>

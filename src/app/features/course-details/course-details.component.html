@@ -1,0 +1,65 @@
+<section>
+  <div class="container">
+    <section class="element full-stack-container">
+      <nav>
+        <div class="nav-container">
+          <p>Home</p>
+          <img src="../../../assets/icons/chervon-right.svg" alt="">
+          <p>Full Stack Web Development</p>
+        </div>
+      </nav>
+
+      <div class="course-content">
+        <header>Full Stack Web Development</header>
+        <article>
+          Learn to build dynamic web applications from the ground up. This course covers HTML, CSS, JavaScript, and backend technologies like Node.js and Express. You'll also explore databases with MongoDB and gain experience in deploying applications.
+        </article>
+        <div class="rating-container">
+          <div class="rating">
+            <span class="stars">
+              <img src="../../../../assets/icons/ratings.svg" alt="">
+            </span>
+            <p class="total-hours"> | {{ course.hours }} Total Hours. {{ course.lectures }} Lectures. {{ course.level }}</p>
+          </div>
+        </div>
+     <div class="crated-by-container">
+      <img [src]="course.image" class="course-img" [alt]="course.title">
+      <p>Created by <span>Jane Doe</span></p>
+     </div>
+     <div class="crated-by-container">
+      <img src="../../../assets/icons/global.svg" [alt]="course.title">
+      <p>English, Spanish, Italian, German</p>
+     </div>
+      </div>
+    </section>
+    <div class="element cart-container">
+      <div class="course-card">
+        <div class="image-container">
+          <div class="image-wrapper">
+            <img [src]="course.image" [alt]="course.title">
+          </div>
+        </div>
+
+        <div class="course-info" >
+          <div class="row">
+            <p class="price">${{ course.price }} <del>$209.9</del> <span>-$10</span></p>
+           @if(!isCourseInCart){
+             <button class="add-to-cart" (click)="addToCart()">Add To Cart</button>
+           }@else{
+            <button class="remove-from-cart" (click)="removeFromCart()">Remove From Cart</button>
+           }
+            <button class="by-now" (click)="byNow()">By Now</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <section class="social-container">
+             <p>Share</p>
+             <div class="social-image-container">
+               <img src="../../../assets/icons/social/social-icons.svg" alt="Social Media Icons">
+             </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,63 @@
+@if(!isLoading){
+<div
+  class="slider-wrapper"
+  [class]="isMobile ? 'slider-wrapper-sm' : 'slider-wrapper-md'"
+>
+  <div class="content">
+    <h2>
+      <span class="highlight">Check</span> our latest
+      <strong>Media Gallery</strong>
+    </h2>
+    <p>Every picture holds a moment, every moment holds a story</p>
+    @if(!isMobile){
+    <button class="view-all">View all Photos</button>
+    }
+  </div>
+
+  <!-- For Desktop View -->
+  @if(!isMobile){
+  <div>
+    <div class="slider-desktop">
+      <div
+        *ngFor="let image of images; let i = index"
+        class="slide-desktop"
+        [ngStyle]="getSlideStyle(i)"
+      ></div>
+    </div>
+
+    <div class="pagination">
+      <div class="pagination-controls">
+        <button class="prev" (click)="prevSlide()">
+          <img src="../../../../../assets/icons/path2.svg" alt="" />
+        </button>
+        <button class="next" (click)="nextSlide()">
+          <img src="../../../../../assets/icons/path2 (1).svg" alt="" />
+        </button>
+      </div>
+      <div class="progress-bar"></div>
+      <span>{{ currentIndex + 1 }} / {{ images.length }}</span>
+    </div>
+  </div>
+  }@else{
+  <!-- For Mobile View -->
+  <div class="slider-mobile-container">
+    <div class="slider-mobile">
+      <div class="slider" [style.transform]="sliderTransform">
+        <img [src]="selectedImage" alt="Selected Image" class="image-large" />
+        <img [src]="nextToSelectedImage" alt="Next Image" class="image-small" />
+      </div>
+    </div>
+    @if(isMobile){
+    <div class="progress-bar-sm"></div>
+    <div class="slider-mobile-actions">
+      <button class="view-all">View all Photos</button>
+    </div>
+    }
+  </div>
+  }
+</div>
+} @if(isLoading){
+<div class="loader-container">
+  <div class="custom-loader"></div>
+</div>
+}

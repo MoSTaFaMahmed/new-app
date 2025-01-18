@@ -1,0 +1,36 @@
+<div class="course-card" (click)="goToCourseDetails(course)">
+  <div class="image-container">
+    <div class="image-wrapper">
+      <img [src]="course.image" [alt]="course.title" />
+    </div>
+    @if(course.discount > 0){
+    <div class="discount-badge">-{{ course.discount }}%</div>
+    }
+    <div class="icon-wrapper">
+      <img src="../../../../assets/icons/Group 469346.svg" alt="" />
+    </div>
+  </div>
+
+  <div class="course-info">
+    <div class="row">
+      <span class="price">${{ course.price }}</span>
+      <span class="category">{{ course.category }}</span>
+    </div>
+
+    <p class="title">{{ course.title }}</p>
+
+    <p class="author">By {{ course.author }}</p>
+
+    <div class="rating">
+      <span class="stars">
+        <img src="../../../../assets/icons/ratings.svg" alt="" />
+      </span>
+      <span class="rating-count">({{ course.ratingCount }} Ratings)</span>
+    </div>
+
+    <p class="total-hours">
+      {{ course.hours }} Total Hours. {{ course.lectures }} Lectures.
+      {{ course.level }}
+    </p>
+  </div>
+</div>
