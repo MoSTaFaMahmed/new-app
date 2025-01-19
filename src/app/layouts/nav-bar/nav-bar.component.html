@@ -7,7 +7,7 @@
     />
 
     <div class="nav-items" *ngIf="!isMobile">
-      <div class="cart-container">
+      <div class="cart-container" (click)="goToCart()">
         <img src="../../../assets/icons/cart.svg" class="cart" alt="cart" />
         <span class="cart-count">
           {{ (cartCount$ | async) }}
@@ -28,7 +28,7 @@
 
   @if(isMobile && isMenuOpen){
     <nav class="nav-items mobile-menu">
-    <div class="cart-container">
+    <div class="cart-container" (click)="goToCart()">
       <img src="../../../assets/icons/cart.svg" class="cart" alt="cart" />
       <span class="cart-count">
         {{ (cartCount$ | async) }}
