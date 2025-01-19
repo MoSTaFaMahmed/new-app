@@ -3,6 +3,8 @@ import { NgIf, AsyncPipe } from '@angular/common';
 import { ScreenSizeService } from '@core/services/utilites/screen-size.service';
 import { CartService } from '@core/services/cart.service';
 import { Observable } from 'rxjs';
+import { ToastService } from '@core/services/utilites/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -18,7 +20,9 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private screenSizeService: ScreenSizeService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastService : ToastService,
+    private router : Router
   ) {}
 
   ngOnInit() {
@@ -36,4 +40,14 @@ export class NavBarComponent implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+  goToCart(){
+    if(!this.cartService.hasItemsInCart()){
+      this.toastService.showToast('please add at least one Item to cart', 'error');
+      return;
+    }
+    this.router.navigate(['/cart'])
+
+  }
+
 }

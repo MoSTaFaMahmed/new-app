@@ -1,0 +1,209 @@
+section {
+  margin: 10px;
+  font-family: "Inter";
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .element {
+    box-sizing: border-box;
+    padding: 42px 40px 0 40px;
+  }
+
+  .full-stack-container {
+    flex: 0 0 60%;
+    @media (max-width: 768px) {
+      padding: 42px 40px 40px 40px;
+    }
+    .nav-container {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 40px;
+      p {
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 21px;
+        text-align: left;
+      }
+      p {
+        color: #0f172a;
+      }
+      .order-prop {
+        h1 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          line-height: 33.6px;
+          text-align: left;
+          color: #0f172a;
+        }
+      }
+
+      p:last-of-type {
+        color: #2563eb;
+      }
+    }
+
+    .form-container {
+      border-radius: 16px;
+      border: 1px;
+      opacity: 0px;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      form {
+        .row {
+          padding: 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 15px;
+          .input-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            gap: 5px;
+            width: 100%;
+            label {
+              font-size: 1.2rem;
+              font-weight: 600;
+              line-height: 28.8px;
+              color: #0f172a;
+              span {
+                color: red;
+              }
+            }
+            input {
+              padding: 20px;
+              width: 100%;
+              border: 1px solid #e2e8f0;
+              color: #94a3b8;
+              border-radius: 8px;
+              &::placeholder {
+                color: #94a3b8;
+              }
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+          .error {
+            font-size: 0.9rem;
+            color: red;
+            margin-top: 5px;
+          }
+        }
+        .payment-method-container {
+          padding: 30px;
+          background: #f8fafc;
+          .payment-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; // Ensures full row usage
+          }
+
+          .checkmark-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+          }
+
+          input[type="radio"] {
+            display: none; // Hide default radio button
+          }
+
+          .checkmark {
+            width: 24px; // Increased size
+            height: 24px;
+            border-radius: 50%;
+            border: 3px solid #94a3b8;
+            position: relative;
+            display: inline-block;
+          }
+
+          input[type="radio"]:checked + .checkmark::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: #2563eb;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          img {
+            margin-left: auto;
+          }
+        }
+
+        h1 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          line-height: 28.8px;
+          color: #0f172a;
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+
+  .course-details-container {
+    flex: 0 0 25%;
+    justify-self: start;
+    align-self: flex-start;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    header {
+      font-family: "Inter";
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 30px;
+      color: #0f172a;
+    }
+    .order-details {
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px;
+    }
+    .add-to-cart {
+      width: 100%;
+      height: Fixed (48px) px;
+      padding: 15px 24px 15px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 0;
+      border: transparent;
+      background: #00b8ff;
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      width: 80%;
+      justify-self: center;
+      align-self: center;
+    }
+  }
+}
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: #e2e8f0;
+  margin: 20px 0;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .element-1,
+  .element-2 {
+    flex: 0 0 100%;
+  }
+}
