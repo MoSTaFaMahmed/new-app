@@ -1,0 +1,142 @@
+<section *ngIf="!showCompletedMessage">
+  <div class="container">
+    <section class="element full-stack-container">
+      <header>
+        <nav>
+          <div class="nav-container">
+            <h1>Checkout Page</h1>
+            <img src="../../../assets/icons/chervon-right.svg" alt="" />
+            <p>Details</p>
+            <img src="../../../assets/icons/chervon-right.svg" alt="" />
+            <p>Shopping Cart</p>
+            <img src="../../../assets/icons/chervon-right.svg" alt="" />
+            <p>Checkout</p>
+          </div>
+        </nav>
+      </header>
+
+      <article class="form-container">
+        <form [formGroup]="checkoutForm">
+          <div class="row">
+            <div class="input-container">
+              <label for="country">Country <span>*</span></label>
+              <input
+                id="country"
+                type="text"
+                name="country"
+                formControlName="country"
+                placeholder="Enter Country"
+              />
+              <span class="error" *ngIf="submitted && f['country'].errors"
+                >Country is required</span
+              >
+            </div>
+            <div class="input-container">
+              <label for="state">State/Union Territory <span>*</span></label>
+              <input
+                id="state"
+                type="text"
+                name="state"
+                formControlName="state"
+                placeholder="Enter State"
+              />
+              <span class="error" *ngIf="submitted && f['state'].errors"
+                >State is required</span
+              >
+            </div>
+          </div>
+
+          <h1>Payment Method</h1>
+          <section class="payment-method-container">
+            <div class="payment-option">
+              <label class="checkmark-container">
+                <input
+                  type="radio"
+                  formControlName="paymentMethod"
+                  value="creditCard"
+                />
+                <span class="checkmark"></span>
+                <strong>Credit/Debit Card</strong>
+              </label>
+              <img src="../../../assets/images/visa.svg" alt="Visa" />
+            </div>
+             <div class="row">
+              <span class="error" *ngIf="submitted && f['paymentMethod'].errors"
+              >Choose Payment Method</span
+            >
+             </div>
+            <div class="row">
+              <div class="input-container">
+                <label for="cardName">Name of Card<span>*</span></label>
+                <input
+                  id="cardName"
+                  type="text"
+                  name="cardName"
+                  formControlName="cardName"
+                  placeholder="Name of card"
+                />
+                <span class="error" *ngIf="submitted && f['cardName'].errors"
+                  >Name of card is required</span
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-container">
+                <label for="cardNumber">Card Number <span>*</span></label>
+                <input
+                  id="cardNumber"
+                  type="text"
+                  name="cardNumber"
+                  formControlName="cardNumber"
+                  placeholder="Card Number"
+                />
+                <p class="error" *ngIf="submitted && f['cardNumber'].errors">
+                  <span *ngIf="f['cardNumber'].errors['required']">Card number is required.</span>
+                  <span *ngIf="f['cardNumber'].errors['pattern']">Card number must be 16 digits.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-container">
+                <label for="expiryDate">Expiry Date <span>*</span></label>
+                <input
+                  id="expiryDate"
+                  type="text"
+                  name="expiryDate"
+                  formControlName="expiryDate"
+                  placeholder="Enter Expiry Date "
+                />
+                <span class="error" *ngIf="submitted && f['expiryDate'].errors"
+                  >Enter Expiry is required</span
+                >
+              </div>
+
+              <div class="input-container">
+                <label for="cvv">CVC/CVV  <span>*</span></label>
+                <input id="cvv" type="text" name="cvv" formControlName="cvv" placeholder="Enter CVC/CVV ">
+                <p class="error" *ngIf="submitted && f['cvv'].errors">
+                  <span *ngIf="f['cvv'].errors['required']">CVV is required.</span>
+                  <span *ngIf="f['cvv'].errors['pattern']">CVV must be 3 or 4 digits.</span>
+                </p>
+               </div>
+            </div>
+          </section>
+        </form>
+      </article>
+    </section>
+    <div class="element course-details-container">
+      <header>Order Details</header>
+      <div class="order-details">
+        <app-order-summary [totalPrice]="totalPrice"></app-order-summary>
+      </div>
+      <button class="add-to-cart" (click)="onSubmit()">
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<app-order-completed *ngIf="showCompletedMessage"></app-order-completed>

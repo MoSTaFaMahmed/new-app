@@ -65,6 +65,12 @@ section {
       margin: 10px 0;
       padding-bottom: 20px;
       position: relative;
+      @media (max-width: 768px) {
+        flex-direction: column;
+        height: 100%;
+        padding-bottom: 0;
+        margin: 0;
+      }
       cursor: pointer;
       .image-container {
         position: relative;
@@ -195,6 +201,9 @@ section {
         font-size: 1.5rem;
         font-weight: 600;
         line-height: 28.8px;
+        @media (max-width: 768px) {
+        display: none;
+        }
       }
     }
   }
@@ -207,6 +216,9 @@ section {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    @media (max-width: 768px) {
+      margin-top: 0;
+    }
     header {
       font-family: "Inter";
       font-size: 1.5rem;
@@ -217,35 +229,9 @@ section {
     .order-details {
       border: 1px solid #e2e8f0;
       background: #f8fafc;
-      width: 330px;
       border-radius: 8px;
       border: 1px;
-      .order-props {
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        .order-prop {
-          display: flex;
-          justify-content: space-between;
-          p {
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 25.6px;
-            color: #0f172a;
-          }
-          p:last-of-type {
-            font-size: 1.1rem;
-            font-weight: 600;
-            line-height: 28.8px;
-          }
-          h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            line-height: 30px;
-          }
-        }
-      }
+
     }
     .add-to-cart {
       width: 100%;

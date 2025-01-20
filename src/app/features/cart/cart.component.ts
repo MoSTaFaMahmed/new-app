@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 import { CourseItem } from '@core/models/courses.model';
 import { CartService } from '@core/services/cart.service';
 import { ToastService } from '@core/services/utilites/toast.service';
+import { OrderSummaryComponent } from '../../layouts/order-summary/order-summary.component';
+
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,OrderSummaryComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
@@ -36,5 +38,9 @@ export class CartComponent {
     if (!this.cartItems.length) {
        this.router.navigate(['/']);
     }
+  }
+
+  goToCheckoutPage(){
+    this.router.navigate(['/checkout']);
   }
 }
