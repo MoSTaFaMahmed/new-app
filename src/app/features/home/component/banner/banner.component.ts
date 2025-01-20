@@ -1,5 +1,5 @@
 import { NgFor, NgIf, SlicePipe } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { BannerItem, Banners } from '@core/models/banner.model';
 import { HomeDataService } from '@core/services/home.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -11,8 +11,8 @@ import { Subject, takeUntil } from 'rxjs';
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.scss',
 })
-export class BannerComponent implements OnInit, OnDestroy {
-  @Input() isMobile: boolean = false;
+export class BannerComponent implements OnInit, OnDestroy, AfterViewInit{
+  @Input() isTablet: boolean = false;
   banners: BannerItem[] = [];
   currentSlide: number = 0;
   intervalId: any;
@@ -21,9 +21,12 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   constructor(private homeDataService: HomeDataService) {}
 
-  ngOnInit() {
-    this.startAutoSlide();
+  ngAfterViewInit(): void {
     this.loadBanners();
+  }
+
+  ngOnInit() {
+
   }
 
   loadBanners() {
@@ -33,6 +36,7 @@ export class BannerComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res: Banners) => {
           this.banners = res.banners;
+          this.startAutoSlide();
           this.isLoading = false;
         },
         error: () => {
@@ -40,6 +44,7 @@ export class BannerComponent implements OnInit, OnDestroy {
         }
       });
   }
+
 
   nextSlide() {
     this.currentSlide = (this.currentSlide + 1) % this.banners.length;

@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { CourseItem } from '@core/models/courses.model';
 import { CartService } from '@core/services/cart.service';
 import { ToastService } from '@core/services/utilites/toast.service';
-import { BreadcrumbComponent } from 'src/app/layouts/breadcrumb/breadcrumb.component';
+
 
 @Component({
   selector: 'app-course-details',
   standalone: true,
-  imports: [BreadcrumbComponent],
+  imports: [],
   templateUrl: './course-details.component.html',
   styleUrl: './course-details.component.scss',
 })

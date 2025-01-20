@@ -14,6 +14,7 @@ import { CoursesComponent } from '../component/courses/courses.component';
 export class HomePageComponent {
 
   isMobile: boolean = false;
+  isTablet: boolean = false;
   currentSlide: number = 0;
   intervalId: any;
 
@@ -21,6 +22,7 @@ export class HomePageComponent {
 
   ngOnInit() {
     this.isMobileChecking();
+    this.isTabletChecking();
   }
 
 
@@ -28,6 +30,13 @@ export class HomePageComponent {
     this.isMobile = this.screenSizeService.isMobile();
     this.screenSizeService.isMobile$.subscribe((isMobile) => {
       this.isMobile = isMobile;
+    });
+  }
+
+  isTabletChecking() {
+    this.isTablet = this.screenSizeService.isTablet();
+    this.screenSizeService.isTablet$.subscribe((isTablet) => {
+      this.isTablet = isTablet;
     });
   }
 }
