@@ -21,10 +21,12 @@
 .logo-mobile {
   width: 94px;
   height: 36px;
+  cursor: pointer;
 }
 
 .logo {
   width: 121px;
+  cursor: pointer;
 }
 
 .burger-menu {
@@ -55,15 +57,15 @@
 
   .nav-btn {
     background: none;
-    border: 1px solid #00B8FF;
+    border: 1px solid #00b8ff;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-    color: #00B8FF;
+    color: #00b8ff;
   }
 
   .nav-btn-active {
-    background: #00B8FF;
+    background: #00b8ff;
     color: white;
   }
 }
@@ -83,8 +85,8 @@
     position: absolute;
     top: -10px;
     right: -8px;
-    background: #FD6F00;
-    color:#FFFFFF;
+    background: #fd6f00;
+    color: #ffffff;
     font-size: 12px;
     font-weight: bold;
     width: 20px;

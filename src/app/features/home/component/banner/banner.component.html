@@ -4,11 +4,8 @@
     <div class="custom-loader"></div>
   </div>
   } @if(!isLoading){
-  <div
-    class="hero-section"
-    [class]="isMobile ? 'hero-section-mobile' : 'hero-section-web'"
-  >
-    @if(!isMobile){
+  <div class="hero-section" [class]="isTablet ? '' : 'hero-section-web'">
+    @if(!isTablet){
     <img
       class="hero-background"
       src="../../../../../assets/images/circles.svg"
@@ -16,17 +13,14 @@
     />
     }
 
-    <div
-      class="hero-content"
-      [class]="isMobile ? 'hero-content-sm' : 'hero-content-md'"
-    >
+    <div class="hero-content" [class]="isTablet ? '' : 'hero-content-md'">
       <h1>
         Better <span class="highlight">Insights</span> For <br />
         Business <span class="highlight">Growth</span>
       </h1>
-      <!-- <h1 [innerHtml]="banners[currentSlide].title"></h1> -->
+      <!-- <div  class="title" [innerHtml]="banners[currentSlide].title"></div> -->
 
-      <p>{{ banners[currentSlide].brief | slice : 0 : 100 }} ...</p>
+      <p>{{ banners[currentSlide].brief }} ...</p>
       <button class="cta-button">Get Started</button>
     </div>
 
@@ -46,23 +40,23 @@
       </div>
 
       <div class="content-md">
-        @if(!isMobile){
+        @if(!isTablet){
         <div class="stats-card courses">
           <img
             src="../../../../../assets/images/Ring.svg"
             alt="Online-courses"
           />
-          <p><span>5K+</span><br />Online Courses</p>
+          <p class="lead-text"><span>5K+</span><br />Online Courses</p>
         </div>
         <div class="stats-card tutors">
           <div>
             <img src="../../../../../assets/icons/icon (1).svg" alt="tutors" />
           </div>
-          <p>Tutors<br /><span>250+</span></p>
+          <p class="lead-text">Tutors<br /><span>250+</span></p>
         </div>
         <div class="stats-card video">
           <img src="../../../../../assets/icons/icon.svg" alt="Courses" />
-          <p><span>2K+</span><br />Video Courses</p>
+          <p class="lead-text"><span>2K+</span><br />Video Courses</p>
         </div>
         }
       </div>
@@ -76,7 +70,7 @@
       <div class="circle-dot"></div>
       <div class="circle-dot-last"></div>
     </div>
-    @if(!isMobile){
+    @if(!isTablet){
     <div class="cloud-img">
       <img
         class="cloud"

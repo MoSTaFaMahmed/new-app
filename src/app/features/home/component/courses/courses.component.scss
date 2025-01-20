@@ -9,6 +9,10 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
+  @media (min-width: 100px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   @media (max-width: 768px) {
     grid-template-columns: 2fr;
     justify-items: center;
